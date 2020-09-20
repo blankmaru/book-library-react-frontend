@@ -3,17 +3,17 @@ import axios from 'axios';
 const url = 'http://localhost:8080/api/user';
 
 class Auth {
-    register(username, email, password) {
+    register(name, email, password) {
         return axios.post(url + '/register', {
-            username,
+            name,
             email,
             password
         }); 
     };
 
-    async login(username, password) {
+    async login(email, password) {
         const res = await axios.post(url + '/login', {
-            username,
+            email,
             password
         });
         if (res.data.accessToken) {

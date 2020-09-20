@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AppNavbar from './components/AppNavbar';
 
 import Register from './components/auth/register';
+import Login from './components/auth/login';
 
 import Auth from './services/auth';
 
@@ -42,6 +43,7 @@ class App extends Component {
           <Container>
             <Switch>
               <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
             </Switch>
           </Container>
       </Router>
