@@ -17,10 +17,16 @@ const AppNavbar = props => {
               <Nav.Link href="/popular">Popular</Nav.Link>
               <Nav.Link href="/books">Books</Nav.Link>
           </Nav>
-          <Nav>
-              <Nav.Link href="/register">Register</Nav.Link>
-              <Nav.Link href="/login">Login</Nav.Link>
-          </Nav>
+          {props.currentUser 
+          ? <Nav>
+                <Nav.Link href="/profile">{props.currentUser.username}</Nav.Link>
+                <Nav.Link onClick={props.logOut} href="/login">LogOut</Nav.Link>
+            </Nav> 
+          : <Nav>
+                <Nav.Link href="/register">Register</Nav.Link>
+                <Nav.Link href="/login">Login</Nav.Link>
+            </Nav>
+          }
         </Container>
       </Navbar>
     </>

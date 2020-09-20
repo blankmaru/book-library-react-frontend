@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import AppNavbar from './components/AppNavbar';
 
+import Register from './components/auth/register';
+
 import Auth from './services/auth';
 
 class App extends Component {
@@ -36,8 +38,11 @@ class App extends Component {
   render() {
     return (
       <Router>
-          <AppNavbar />
+          <AppNavbar state={this.state} logOut={this.logOut} />
           <Container>
+            <Switch>
+              <Route exact path="/register" component={Register} />
+            </Switch>
           </Container>
       </Router>
     );
