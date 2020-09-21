@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import {
-    Button,
-    Card,
     Spinner
 } from 'react-bootstrap';
 import { FaPlusCircle } from 'react-icons/fa';
+
+import BookItem from './BookItem';
 
 const Books = props => {
     const [books, setBooks] = useState([]);
@@ -22,7 +22,7 @@ const Books = props => {
 
         const user = localStorage.getItem('user');
 
-        if (user) {
+        if (JSON.parse(user).roles.includes('ADMIN')) {
             setIsUser(true);
         };
     }, [])
@@ -60,16 +60,7 @@ const Books = props => {
             </div>
             <div style={{marginTop: '1rem', display: 'flex'}}>
                 {books.map(book => (<>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>{book.title}</Card.Title>
-                            <Card.Text>{book.desc}</Card.Text>
-                            <Card.Text>Author: {book.author}</Card.Text>
-                            <Card.Text>PostedBy: {book.postedBy}</Card.Text>
-                            <Button variant="primary">Update</Button>
-                            <Button variant="danger">Delete</Button>
-                        </Card.Body>
-                    </Card>
+                    <BookItem book={book} />
                 </>))}
             </div>
         </div>

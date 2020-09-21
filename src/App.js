@@ -11,7 +11,7 @@ import Register from './components/auth/register';
 import Login from './components/auth/login';
 import Profile from './components/auth/profile';
 
-import Books from './components/Books';
+import Books from './components/Books/Books';
 
 import Auth from './services/auth';
 

@@ -6,13 +6,17 @@ import {
   NavbarBrand
 } from 'react-bootstrap';
 
+import {
+  FaSignOutAlt
+} from 'react-icons/fa';
+
 const AppNavbar = props => {
   return (
     <>
-      <Navbar className="justify-content-between" bg="light" variant="light">
+      <Navbar style={{background: '#000'}} className="justify-content-between"  variant="dark">
         <Container>
           <NavbarBrand>Book Library</NavbarBrand>
-          <Nav>
+          <Nav className="navbar-nav mr-auto">
               <Nav.Link href="/category">Categories</Nav.Link>
               <Nav.Link href="/popular">Popular</Nav.Link>
               <Nav.Link href="/books">Books</Nav.Link>
@@ -20,7 +24,7 @@ const AppNavbar = props => {
           {props.state.currentUser 
           ? ( <Nav>
                 <Nav.Link href="/profile">{props.state.currentUser.username}</Nav.Link>
-                <Nav.Link onClick={props.logOut} href="/login">LogOut</Nav.Link>
+                <Nav.Link onClick={props.logOut} href="/login"><FaSignOutAlt /></Nav.Link>
               </Nav> )
           : ( <Nav>
                 <Nav.Link href="/register">Register</Nav.Link>
