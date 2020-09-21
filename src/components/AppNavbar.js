@@ -9,7 +9,7 @@ import {
 const AppNavbar = props => {
   return (
     <>
-      <Navbar className="justify-content-between" bg="dark" variant="dark">
+      <Navbar className="justify-content-between" bg="light" variant="light">
         <Container>
           <NavbarBrand>Book Library</NavbarBrand>
           <Nav>

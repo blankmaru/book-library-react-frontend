@@ -1,4 +1,3 @@
-  
 import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
@@ -93,11 +92,11 @@ export default class Login extends Component {
             }}
           >
             <div className="form-group">
-              <label htmlFor="username">Email</label>
+              <label htmlFor="email">Email</label>
               <Input
                 type="text"
                 className="form-control"
-                name="username"
+                name="email"
                 value={this.state.email}
                 onChange={this.onChangeEmail}
                 validations={[required]}
