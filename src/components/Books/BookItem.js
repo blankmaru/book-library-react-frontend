@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Button,
     Card
 } from 'react-bootstrap';
 import axios from 'axios';
 
+import UpdateModal from './UpdateModal';
+
 const BookItem = props => {
+    const [modal, setModal] = useState(false);
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem('user'))
+    );
+
+    const toggle = () => setModal(!modal);
 
     const deleteItem = () => {
-        axios.delete(`http://localhost:8080/api/books/${props.book._id}`)
+        axios.delete(`http://localhost:8080/api/books/${props.book._id}`, {
+            headers: {
+                'auth-token': user.accessToken
+            }
+        })
             .then(() => console.log('Item deleted'))
-            .catch(err => console.error(err));
 
         setTimeout(() => {
             window.location = '/books';
@@ -24,10 +35,15 @@ const BookItem = props => {
                 <Card.Text>{props.book.desc}</Card.Text>
                 <Card.Text>Author: {props.book.author}</Card.Text>
                 <div style={{display: 'block'}}>
-                    <Button variant="success" block>Update</Button>
-                    <Button onClick={deleteItem} variant="danger" block>Delete</Button>
+                    {user 
+                    ? <>
+                        <Button onClick={toggle} variant="success" block>Update</Button>
+                        <Button onClick={deleteItem} variant="danger" block>Delete</Button>
+                    </> 
+                    : null}
                     <Button variant="dark" block>Read</Button>
                 </div>
+                <UpdateModal modal={modal} toggle={toggle} book={props.book} />
             </Card.Body>
         </Card>
     );

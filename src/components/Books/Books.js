@@ -22,8 +22,10 @@ const Books = props => {
 
         const user = localStorage.getItem('user');
 
-        if (JSON.parse(user).roles.includes('ADMIN')) {
+        if (JSON.parse(user)) {
             setIsUser(true);
+        } else {
+            return;
         };
     }, [])
 
