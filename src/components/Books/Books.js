@@ -5,11 +5,15 @@ import {
 import { FaPlusCircle } from 'react-icons/fa';
 
 import BookItem from './BookItem';
+import AddBookModal from './AddBookModal';
 
 const Books = props => {
     const [books, setBooks] = useState([]);
     const [isUser, setIsUser] = useState(false);
     const [isFetching, setIsFetching] = useState(false);
+    const [modal, setModal] = useState(false);
+
+    const toggle = () => setModal(!modal);
 
     useEffect(() => {
         setIsFetching(true);
@@ -45,9 +49,11 @@ const Books = props => {
                             cursor: 'pointer',
                             marginTop: '1rem'
                         }}
+                        onClick={toggle}
                     />
                 </>
                 : null}
+            <AddBookModal toggle={toggle} modal={modal} />
             <div
                 style={{
                     width: "100%",

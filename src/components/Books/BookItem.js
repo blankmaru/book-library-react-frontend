@@ -25,7 +25,7 @@ const BookItem = props => {
 
         setTimeout(() => {
             window.location = '/books';
-        }, 1500)
+        }, 500)
     };
 
     return (
