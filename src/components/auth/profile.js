@@ -16,6 +16,7 @@ const Profile = props => {
                     <Card.Text>
                         {currentUser.email}
                     </Card.Text>
+                    <Card.Text>Readed books: </Card.Text>
                 </Card.Body>
             </Card>
         </div>

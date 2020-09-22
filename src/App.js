@@ -10,6 +10,7 @@ import AppNavbar from './components/AppNavbar';
 import Register from './components/auth/register';
 import Login from './components/auth/login';
 import Profile from './components/auth/profile';
+import Category from './components/Categories/Category';
 
 import Books from './components/Books/Books';
 
@@ -49,6 +50,7 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/profile" component={Profile} />
               <Route path="/books" component={Books} />
+              <Route exact path="/category" component={Category} />
             </Switch>
           </Container>
       </Router>

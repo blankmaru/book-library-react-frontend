@@ -33,6 +33,7 @@ const BookItem = props => {
             <Card.Body>
                 <Card.Title>{props.book.title}</Card.Title>
                 <Card.Text>{props.book.desc}</Card.Text>
+                <Card.Text><strong>Category:</strong> {props.book.category}</Card.Text>
                 <Card.Text>Author: {props.book.author}</Card.Text>
                 <div style={{display: 'block'}}>
                     {user 

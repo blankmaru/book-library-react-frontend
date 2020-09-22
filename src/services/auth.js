@@ -30,6 +30,10 @@ class Auth {
     currentUser() {
         return JSON.parse(localStorage.getItem('user'));
     };
+
+    authHeader() {
+        return JSON.parse(localStorage.getItem('user')).accessToken;
+    }
 };
 
 export default new Auth();

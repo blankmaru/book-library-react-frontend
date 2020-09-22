@@ -11,11 +11,14 @@ const AddBookModal = props => {
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
     const [author, setAuthor] = useState('');
+    const [category, setCategory] = useState('');
+    
     const [success, setSuccess] = useState(false);
 
     const onTitleChange = (e) => setTitle(e.target.value);
     const onDescChange = (e) => setDesc(e.target.value);
     const onAuthorChange = (e) => setAuthor(e.target.value);
+    const onCategoryChange = (e) => setCategory(e.target.value);
 
     const createBook = (e) => {
         e.preventDefault();
@@ -26,7 +29,9 @@ const AddBookModal = props => {
             title,
             desc,
             author,
-            postedBy: user.id
+            postedBy: user.id,
+            timesReaded: 0,
+            category
         };
 
         axios.post('http://localhost:8080/api/books/add', newBook, {
@@ -48,7 +53,7 @@ const AddBookModal = props => {
             </Modal.Header>
             <Modal.Body>
                 {success ? (
-                    <Alert color="primary">Post created successfully!</Alert>
+                    <Alert color="primary">Book created successfully!</Alert>
                 ) : null}
                 <Form onSubmit={createBook}>
                     <Form.Group>
@@ -87,6 +92,24 @@ const AddBookModal = props => {
                         />
                         <Form.Text className="text-muted">
                             Author of new book
+                        </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Category</Form.Label>
+                        <Form.Control value={category} onChange={onCategoryChange} as="select">
+                            <option>Action Adventure</option>
+                            <option>Classics</option>
+                            <option>Detective</option>
+                            <option>Drama</option>
+                            <option>Fantasy</option>
+                            <option>Science</option>
+                            <option>Romantic</option>
+                            <option>Psychology</option>
+                            <option>Horror</option>
+                        </Form.Control>
+                        <Form.Text className="text-muted">
+                            Choose category of the book
                         </Form.Text>
                     </Form.Group>
                     <Button variant="primary" type="submit" block>
