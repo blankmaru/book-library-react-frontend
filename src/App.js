@@ -19,6 +19,8 @@ import Horror from './components/Categories/Horror';
 import ActionAdventure from './components/Categories/ActionAdventure';
 import Detective from './components/Categories/Detective';
 import Psychology from './components/Categories/Psychology';
+import Drama from './components/Categories/Drama';
+import Fantasy from './components/Categories/Fantasy';
 
 import Books from './components/Books/Books';
 
@@ -66,6 +68,8 @@ class App extends Component {
               <Route exact path="/category/actionAdventure" component={ActionAdventure} />
               <Route exact path="/category/detective" component={Detective} />
               <Route exact path="/category/psychology" component={Psychology} />
+              <Route exact path="/category/drama" component={Drama} />
+              <Route exact path="/category/fantasy" component={Fantasy} />
             </Switch>
           </Container>
       </Router>

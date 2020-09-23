@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
-import { FaPlusCircle } from 'react-icons/fa';
 
 import BookItem from '../Books/BookItem';
 
-const Detective = props => {
+const Fantasy = props => {
     const [books, setBooks] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
     const [isEmpty, setIsEmpty] = useState(true);
 
     useEffect(() => {
         setIsFetching(true);
-        fetch('http://localhost:8080/api/books/category/detective')
+        fetch('http://localhost:8080/api/books/category/psychology')
             .then(res => res.json())
             .then(data => {
                 if (data.books[0] === null) {
@@ -30,15 +29,7 @@ const Detective = props => {
                 justifyContent: "center",
                 textAlign: "center"
             }}>
-                <h2 style={{marginTop: '1rem'}}>
-                    <strong>Category:</strong> Detective <FaPlusCircle
-                        size="30"
-                        style={{
-                            cursor: 'pointer',
-                            float: 'right'
-                        }}
-                    />
-                </h2>
+                <h2 style={{marginTop: '1rem'}}><strong>Category:</strong> Fantasy</h2>
                 {isFetching 
                 ? <Spinner style={{marginTop: '1rem'}} animation="border" variant="secondary" /> 
                 : null}
@@ -50,4 +41,4 @@ const Detective = props => {
     );
 };
 
-export default Detective;
+export default Fantasy;
