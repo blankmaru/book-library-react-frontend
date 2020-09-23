@@ -3,14 +3,14 @@ import { Spinner } from 'react-bootstrap';
 
 import BookItem from '../Books/BookItem';
 
-const Romantic = props => {
+const ActionAdventure = props => {
     const [books, setBooks] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
     const [isEmpty, setIsEmpty] = useState(true);
 
     useEffect(() => {
         setIsFetching(true);
-        fetch('http://localhost:8080/api/books/category/romantic')
+        fetch('http://localhost:8080/api/books/category/actionAdventure')
             .then(res => res.json())
             .then(data => {
                 if (data.books[0] === null) {
@@ -29,7 +29,7 @@ const Romantic = props => {
                 justifyContent: "center",
                 textAlign: "center"
             }}>
-                <h2 style={{marginTop: '1rem'}}><strong>Category:</strong> Romantic</h2>
+                <h2 style={{marginTop: '1rem'}}><strong>Category:</strong> Action Adventure</h2>
                 {isFetching 
                 ? <Spinner style={{marginTop: '1rem'}} animation="border" variant="secondary" /> 
                 : null}
@@ -41,4 +41,4 @@ const Romantic = props => {
     );
 };
 
-export default Romantic;
+export default ActionAdventure;

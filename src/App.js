@@ -13,6 +13,12 @@ import Profile from './components/auth/profile';
 
 import Category from './components/Categories/Category';
 import Romantic from './components/Categories/Romantic';
+import Science from './components/Categories/Science';
+import Classics from './components/Categories/Classics';
+import Horror from './components/Categories/Horror';
+import ActionAdventure from './components/Categories/ActionAdventure';
+import Detective from './components/Categories/Detective';
+import Psychology from './components/Categories/Psychology';
 
 import Books from './components/Books/Books';
 
@@ -54,6 +60,12 @@ class App extends Component {
               <Route path="/books" component={Books} />
               <Route exact path="/category" component={Category} />
               <Route exact path="/category/romantic" component={Romantic} />
+              <Route exact path="/category/science" component={Science} />
+              <Route exact path="/category/classics" component={Classics} />
+              <Route exact path="/category/horror" component={Horror} />
+              <Route exact path="/category/actionAdventure" component={ActionAdventure} />
+              <Route exact path="/category/detective" component={Detective} />
+              <Route exact path="/category/psychology" component={Psychology} />
             </Switch>
           </Container>
       </Router>
