@@ -10,6 +10,7 @@ import AppNavbar from './components/AppNavbar';
 import Register from './components/auth/register';
 import Login from './components/auth/login';
 import Profile from './components/auth/profile';
+import Footer from './components/Footer';
 
 import Category from './components/Categories/Category';
 import Romantic from './components/Categories/Romantic';

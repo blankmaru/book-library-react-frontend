@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Button,
     Card
@@ -9,11 +9,18 @@ import UpdateModal from './UpdateModal';
 
 const BookItem = props => {
     const [modal, setModal] = useState(false);
+    const [update, setUpdate] = useState(false);
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem('user'))
     );
 
     const toggle = () => setModal(!modal);
+
+    useEffect(() => {
+        if (props.book.postedBy === user.id) {
+            setUpdate(true);
+        };
+    }, [])
 
     const deleteItem = () => {
         axios.delete(`http://localhost:8080/api/books/${props.book._id}`, {
@@ -36,9 +43,11 @@ const BookItem = props => {
                 <Card.Text><strong>Category:</strong> {props.book.category}</Card.Text>
                 <Card.Text>Author: {props.book.author}</Card.Text>
                 <div style={{display: 'block'}}>
+                    {update 
+                    ? <Button onClick={toggle} variant="success" block>Update</Button>
+                    : null}
                     {user 
                     ? <>
-                        <Button onClick={toggle} variant="success" block>Update</Button>
                         <Button onClick={deleteItem} variant="danger" block>Delete</Button>
                     </> 
                     : null}

@@ -18,7 +18,6 @@ const AppNavbar = props => {
           <NavbarBrand>Book Library</NavbarBrand>
           <Nav className="navbar-nav mr-auto">
               <Nav.Link href="/category">Categories</Nav.Link>
-              <Nav.Link href="/popular">Popular</Nav.Link>
               <Nav.Link href="/books">Books</Nav.Link>
           </Nav>
           {props.state.currentUser 
