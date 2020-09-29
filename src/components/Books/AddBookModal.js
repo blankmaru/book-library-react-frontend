@@ -30,7 +30,6 @@ const AddBookModal = props => {
             desc,
             author,
             postedBy: user.id,
-            timesReaded: 0,
             category
         };
 
@@ -40,6 +39,7 @@ const AddBookModal = props => {
             }
         })
             .then(() => setSuccess(true))
+
 
         setTimeout(() => {
             window.location = '/books';
@@ -98,7 +98,6 @@ const AddBookModal = props => {
                     <Form.Group>
                         <Form.Label>Category</Form.Label>
                         <Form.Control value={category} onChange={onCategoryChange} as="select">
-                            <option>Action Adventure</option>
                             <option>Classics</option>
                             <option>Detective</option>
                             <option>Drama</option>

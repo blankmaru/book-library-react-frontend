@@ -13,18 +13,12 @@ import {
     FaUserSecret,
     FaTheaterMasks,
     FaEye,
-    FaMountain,
     FaBook
 } from 'react-icons/fa';
 
 const Category = props => {
     return (
         <div style={{marginTop: '1rem'}}>
-            <NavLink style={{textDecoration: 'none', color: '#000'}} to="/category/actionAdventure">
-                <Jumbotron>
-                    <h3>Action Adventure<FaMountain /> </h3>
-                </Jumbotron>
-            </NavLink>
             <NavLink style={{textDecoration: 'none', color: '#000'}} to="/category/classics">
                 <Jumbotron>
                     <h3>Classics<FaBook /></h3>

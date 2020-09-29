@@ -43,15 +43,14 @@ const BookItem = props => {
                 <Card.Text><strong>Category:</strong> {props.book.category}</Card.Text>
                 <Card.Text>Author: {props.book.author}</Card.Text>
                 <div style={{display: 'block'}}>
-                    {update 
-                    ? <Button onClick={toggle} variant="success" block>Update</Button>
-                    : null}
-                    {user 
-                    ? <>
-                        <Button onClick={deleteItem} variant="danger" block>Delete</Button>
-                    </> 
-                    : null}
-                    <Button variant="dark" block>Read</Button>
+                        {update 
+                        ? <Button onClick={toggle} variant="success" block>Update</Button>
+                        : null}
+                        {user 
+                        ? <>
+                            <Button onClick={deleteItem} variant="danger" block>Delete</Button>
+                        </> 
+                        : null}
                 </div>
                 <UpdateModal modal={modal} toggle={toggle} book={props.book} />
             </Card.Body>

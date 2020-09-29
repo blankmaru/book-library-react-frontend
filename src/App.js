@@ -10,14 +10,13 @@ import AppNavbar from './components/AppNavbar';
 import Register from './components/auth/register';
 import Login from './components/auth/login';
 import Profile from './components/auth/profile';
-import Footer from './components/Footer';
+import Home from './components/HomePage';
 
 import Category from './components/Categories/Category';
 import Romantic from './components/Categories/Romantic';
 import Science from './components/Categories/Science';
 import Classics from './components/Categories/Classics';
 import Horror from './components/Categories/Horror';
-import ActionAdventure from './components/Categories/ActionAdventure';
 import Detective from './components/Categories/Detective';
 import Psychology from './components/Categories/Psychology';
 import Drama from './components/Categories/Drama';
@@ -57,6 +56,7 @@ class App extends Component {
           <AppNavbar state={this.state} logOut={this.logOut} />
           <Container>
             <Switch>
+              <Route exact path="/" component={Home} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/profile" component={Profile} />
@@ -66,7 +66,6 @@ class App extends Component {
               <Route exact path="/category/science" component={Science} />
               <Route exact path="/category/classics" component={Classics} />
               <Route exact path="/category/horror" component={Horror} />
-              <Route exact path="/category/actionAdventure" component={ActionAdventure} />
               <Route exact path="/category/detective" component={Detective} />
               <Route exact path="/category/psychology" component={Psychology} />
               <Route exact path="/category/drama" component={Drama} />

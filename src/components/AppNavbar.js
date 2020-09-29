@@ -15,7 +15,7 @@ const AppNavbar = props => {
     <>
       <Navbar style={{background: '#000'}} className="justify-content-between"  variant="dark">
         <Container>
-          <NavbarBrand>Book Library</NavbarBrand>
+          <NavbarBrand href="/">Book Library</NavbarBrand>
           <Nav className="navbar-nav mr-auto">
               <Nav.Link href="/category">Categories</Nav.Link>
               <Nav.Link href="/books">Books</Nav.Link>
